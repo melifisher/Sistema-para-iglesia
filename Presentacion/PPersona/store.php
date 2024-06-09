@@ -7,8 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
     $apellidos = $_POST['apellidos'];
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
-    $fecha_bautizo = $_POST['fecha_bautizo'];
-    $id_estado_civil =  $_POST['id_estado_civil'];
+    $fecha_bautizo = $_POST['fecha_bautizo']; if($fecha_nacimiento=="") $fecha_nacimiento=null;
+    $fecha_bautizo = $_POST['fecha_bautizo']; if($fecha_bautizo=="") $fecha_bautizo=null;
     $id_cargo =  $_POST['id_cargo'];
     if($id_cargo==0) $id_cargo=null;
     
