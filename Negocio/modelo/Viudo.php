@@ -1,5 +1,13 @@
 <?php
-class Viudo extends EstadoCivil{
+class Viudo implements EstadoCivil{
+    private ContextPersona $context;
+    
+    public function setContext($context){
+        $this->context = $context;
+    }
+    public function getContext(){
+        return $this->context;
+    }
     public function solterar(){
         $this->context->setMensaje("De viudo no puede volver a soltero");
     }
@@ -12,5 +20,6 @@ class Viudo extends EstadoCivil{
     public function concubinar(){   
         $this->context->setMensaje("De viuda no puede ir a concubino");
     }
+    public function enviudar(){}
 }
 ?>

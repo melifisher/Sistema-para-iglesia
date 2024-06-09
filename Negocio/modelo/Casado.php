@@ -1,8 +1,17 @@
 <?php
-class Casado extends EstadoCivil{
+class Casado implements EstadoCivil{
+    private ContextPersona $context;
+    
+    public function setContext($context){
+        $this->context = $context;
+    }
+    public function getContext(){
+        return $this->context;
+    }
     public function solterar(){
         $this->context->setMensaje("De casado no puede volver a soltero");
     }
+    public function casarse(){}
     public function divorciar(){
         $this->context->setEstado(new Divorciado());
     }

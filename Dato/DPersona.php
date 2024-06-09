@@ -79,70 +79,93 @@ class DPersona {
 
     public function lista()
     {
-        $query = "SELECT * FROM persona";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+        try{
+            $query = "SELECT * FROM persona";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        }catch(PDOException $e){
+            print($e->getMessage());
+        } 
     }
 
     public function obtenerPorId($id){
-        $query = "SELECT * FROM persona WHERE id = :id";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_OBJ);
+        try{
+            $query = "SELECT * FROM persona WHERE id = :id";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        }catch(PDOException $e){
+            print($e->getMessage());
+        } 
     }
 
     public function obtenerEstado($id){
-        $query = "SELECT id_estado_civil FROM persona WHERE id = :id";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_OBJ)->id_estado_civil;
-                
+        try{
+            $query = "SELECT id_estado_civil FROM persona WHERE id = :id";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ)->id_estado_civil;
+        }catch(PDOException $e){
+            print($e->getMessage());
+        } 
     }
 
     public function agregar(DPersona $dc)
     {
-        $query = "INSERT INTO persona (id, nombre, apellidos, fecha_nacimiento, fecha_bautizo, id_estado_civil, id_cargo) VALUES (:id, :nombre, :apellidos, :fecha_nacimiento, :fecha_bautizo, :id_estado_civil, :id_cargo)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':id', $dc->getId());
-        $stmt->bindParam(':nombre', $dc->getNombre());
-        $stmt->bindParam(':apellidos', $dc->getApellidos());
-        $stmt->bindParam(':fecha_nacimiento', $dc->getFechaNacimiento());
-        $stmt->bindParam(':fecha_bautizo', $dc->getFechaBautizo());
-        $stmt->bindParam(':id_estado_civil', $dc->getIdEstadoCivil());
-        $stmt->bindParam(':id_cargo', $dc->getIdCargo());
-        $stmt->execute();
+        try{
+            $query = "INSERT INTO persona (id, nombre, apellidos, fecha_nacimiento, fecha_bautizo, id_estado_civil, id_cargo) VALUES (:id, :nombre, :apellidos, :fecha_nacimiento, :fecha_bautizo, :id_estado_civil, :id_cargo)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id', $dc->getId());
+            $stmt->bindParam(':nombre', $dc->getNombre());
+            $stmt->bindParam(':apellidos', $dc->getApellidos());
+            $stmt->bindParam(':fecha_nacimiento', $dc->getFechaNacimiento());
+            $stmt->bindParam(':fecha_bautizo', $dc->getFechaBautizo());
+            $stmt->bindParam(':id_estado_civil', $dc->getIdEstadoCivil());
+            $stmt->bindParam(':id_cargo', $dc->getIdCargo());
+            $stmt->execute();
+        }catch(PDOException $e){
+            print($e->getMessage());
+        } 
     }
     
     public function actualizar($id, DPersona $dc)
     {
-        $query = "UPDATE persona SET nombre = :nombre, apellidos = :apellidos, fecha_nacimiento = :fecha_nacimiento, fecha_bautizo = :fecha_bautizo, id_estado_civil = :id_estado_civil, id_cargo = :id_cargo WHERE id = :id";
+        try{
+            $query = "UPDATE persona SET nombre = :nombre, apellidos = :apellidos, fecha_nacimiento = :fecha_nacimiento, fecha_bautizo = :fecha_bautizo, id_estado_civil = :id_estado_civil, id_cargo = :id_cargo WHERE id = :id";
 
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':nombre', $dc->getNombre());
-        $stmt->bindParam(':apellidos', $dc->getApellidos());
-        $stmt->bindParam(':fecha_nacimiento', $dc->getFechaNacimiento());
-        $stmt->bindParam(':fecha_bautizo', $dc->getFechaBautizo());
-        $stmt->bindParam(':id_estado_civil', $dc->getIdEstadoCivil());
-        $stmt->bindParam(':id_cargo', $dc->getIdCargo());
-        $stmt->bindParam(':id', $id);
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':nombre', $dc->getNombre());
+            $stmt->bindParam(':apellidos', $dc->getApellidos());
+            $stmt->bindParam(':fecha_nacimiento', $dc->getFechaNacimiento());
+            $stmt->bindParam(':fecha_bautizo', $dc->getFechaBautizo());
+            $stmt->bindParam(':id_estado_civil', $dc->getIdEstadoCivil());
+            $stmt->bindParam(':id_cargo', $dc->getIdCargo());
+            $stmt->bindParam(':id', $id);
 
-        $stmt->execute();
+            $stmt->execute();
+        }catch(PDOException $e){
+            print($e->getMessage());
+        } 
     }
 
     
     public function eliminar($id)
     {
-        $query = "DELETE FROM persona WHERE id = :id";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':id', $id);
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+        try{
+            $query = "DELETE FROM persona WHERE id = :id";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id', $id);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(PDOException $e){
+            print($e->getMessage());
+        } 
     }
 
 }

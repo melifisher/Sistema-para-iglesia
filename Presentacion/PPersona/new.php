@@ -78,7 +78,7 @@ require_once '../layout/header.php';
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="fecha_bautizo" class="bmd-label-floating">Fecha de bautizo</label>
-										<input type="text" class="form-control" name="fecha_bautizo" id="fecha_bautizo" placeholder="aaaa-mm-dd" required>
+										<input type="text" class="form-control" name="fecha_bautizo" id="fecha_bautizo" placeholder="aaaa-mm-dd">
 									</div>
 								</div>	
 								<div class="col-12 col-md-6">
