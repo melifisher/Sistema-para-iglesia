@@ -1,0 +1,12 @@
+{
+    "name": "hp/iglesia",
+    "authors": [
+        {
+            "name": "Melissa",
+            "email": "melifisher1234@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^2.0"
+    }
+}
