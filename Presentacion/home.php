@@ -144,7 +144,7 @@
 			<div class="full-box tile-container">
 
 				<a href="PPersona/list.php" class="tile">
-					<div class="tile-tittle">Feligreses</div>
+					<div class="tile-tittle">Personas</div>
 					<div class="tile-icon">
 						<i class="fas fa-users fa-fw"></i>
 					</div>

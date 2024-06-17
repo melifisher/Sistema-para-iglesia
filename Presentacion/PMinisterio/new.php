@@ -66,7 +66,7 @@ $db = $_GET['db'];
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="nombre" class="bmd-label-floating">Nombre</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control"
+										<input type="text" class="form-control"
 											name="nombre" id="nombre" maxlength="40">
 									</div>
 								</div>

@@ -31,10 +31,10 @@ $db = $_GET['db'];
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs">
 					<li>
-						<a href="new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR MINISTERIO</a>
+						<a href="new.php?db=<?php echo $db ?>"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR MINISTERIO</a>
 					</li>
 					<li>
-						<a href="list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE MINISTERIOS</a>
+						<a href="list.php?db=<?php echo $db ?>"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE MINISTERIOS</a>
 					</li>
 					<li>
 						<a href="search.php"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR MINISTERIO</a>
@@ -67,7 +67,7 @@ $db = $_GET['db'];
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="nombre" class="bmd-label-floating">Nombre</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control"
+										<input type="text" class="form-control"
 											name="nombre" id="nombre" maxlength="40"
 											value="<?php echo $cargo->nombre; ?>">
 									</div>
